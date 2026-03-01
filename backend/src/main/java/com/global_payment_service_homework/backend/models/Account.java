@@ -18,4 +18,16 @@ public class Account {
     private Currency currency;
     private float balance;
 
+    public Long getId() {
+        return this.id;
+    }
+
+    public Currency getCurrency() {
+        return this.currency;
+    }
+
+    public float getBalance() {
+        return this.balance;
+    }
+
 }
