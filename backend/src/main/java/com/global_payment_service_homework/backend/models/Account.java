@@ -30,4 +30,8 @@ public class Account {
         return this.balance;
     }
 
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
+    }
+
 }
