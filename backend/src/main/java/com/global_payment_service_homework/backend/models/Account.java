@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.util.UUID;
 
 import com.global_payment_service_homework.backend.enums.Currency;
 
@@ -13,12 +14,12 @@ import com.global_payment_service_homework.backend.enums.Currency;
 public class Account {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     private Currency currency;
     private float balance;
 
-    public Long getId() {
+    public UUID getId() {
         return this.id;
     }
 
