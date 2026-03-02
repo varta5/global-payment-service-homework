@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.UUID;
 
 import com.global_payment_service_homework.backend.dtos.PostAccountRequestDto;
@@ -39,6 +40,7 @@ public class AccountService {
         return accountRepository.save(account);
     }
 
+    @Transactional
     public Account transferMoney(TransferMoneyDto tranferMoneyDto) throws BadRequestException {
         Account sourceAccount = this.getAccount(tranferMoneyDto.getSourceAccountId());
         Account targetAccount = this.getAccount(tranferMoneyDto.getTargetAccountId());
