@@ -11,3 +11,25 @@ The database contains Account records whose properites are:
 - balance - float to allow decimal values - exact rounding will be implemented later
 
 Accounts can be created by selecting their currency, but their balance is always 0 (zero) at initiation.
+
+Transferring money between two Accounts can be invoked with the "POST /api/transfers" endpoint. Example request body:
+
+```JSON
+{
+  "sourceAccountId": "a25a061b-2fdd-48f9-950d-0c2724c0091e",
+  "targetAccountId": "eb0f946d-a159-4b4a-b481-8349db6f1e11",
+  "amount": 975.31
+}
+```
+
+Example response body:
+
+```JSON
+{
+  "id": "a25a061b-2fdd-48f9-950d-0c2724c0091e",
+  "currency": "EUR",
+  "balance": 24.69
+}
+```
+
+The endpoint returns 404 Not Found, if any of the accounts are not existing. It returns 400 Bad Request if the source and target Accounts are the same, if the currency of the accounts do not match, or if the source account's balance is below the requested amount to be transferred.

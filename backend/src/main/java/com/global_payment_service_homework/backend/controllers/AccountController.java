@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
 
 import com.global_payment_service_homework.backend.dtos.PostAccountRequestDto;
+import com.global_payment_service_homework.backend.dtos.TransferMoneyDto;
+import com.global_payment_service_homework.backend.exceptions.BadRequestException;
 import com.global_payment_service_homework.backend.models.Account;
 import com.global_payment_service_homework.backend.services.AccountService;
 
@@ -39,6 +41,11 @@ public class AccountController {
     @PostMapping("/accounts")
     public ResponseEntity<Account> createAccount(@RequestBody(required = false) PostAccountRequestDto accountDto) {
         return ResponseEntity.ok(accountService.createAccount(accountDto));
+    }
+
+    @PostMapping("/transfers")
+    public ResponseEntity<Account> transferMoney(@RequestBody(required = false) TransferMoneyDto tranferMoneyDto) throws BadRequestException {
+        return ResponseEntity.ok(accountService.transferMoney(tranferMoneyDto));
     }
 
 }

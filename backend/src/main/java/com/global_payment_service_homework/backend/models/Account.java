@@ -35,4 +35,12 @@ public class Account {
         this.currency = currency;
     }
 
+    public void credit(float amount) {
+        this.balance += amount;
+    }
+
+    public void deduct(float amount) {
+        this.balance -= amount;
+    }
+
 }
